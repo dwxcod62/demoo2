@@ -1,4 +1,9 @@
 services:
-    - name: tomcat
-      buildCommand: docker build -t my-tomcat-app .
+    - name: my-tomcat-app
+      env:
+          - key: JAVA_OPTS
+            value: "-Duser.timezone=UTC"
       startCommand: docker run -p 8080:8080 my-tomcat-app
+      healthCheck:
+          httpEndpoint: /ProjectManager
+          port: 8080
