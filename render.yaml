@@ -1,0 +1,4 @@
+services:
+    - name: tomcat
+      buildCommand: docker build -t my-tomcat-app .
+      startCommand: docker run -p 8080:8080 my-tomcat-app
